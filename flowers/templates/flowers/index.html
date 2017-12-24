@@ -1,0 +1,9 @@
+{% if all_flowers %}
+	<ul>
+		{% for flower in all_flowers %}
+		<li><a href="/flowers/{{ flower.id }}/">{{ flower.name }}</a></li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<h3>There are no flowers</h3>
+{% endif %}
