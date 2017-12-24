@@ -1,8 +1,14 @@
 # Create your views here.
 from django.http import HttpResponse
+from .models import Flower
 
 def index(request):
-    return HttpResponse("<h1>This is the flowers home page</h1>")
+	all_flowers = Flower.objects.all()
+	html = ''
+	for flower in all_flowers:
+		url = '/flowers/' + str(flower.id)
+		html += '<a href="' + url + '">' + flower.name + '</a><br>'
+	return HttpResponse(html)
 
 def detail(request, flower_id):
 	return HttpResponse("<h2>Details for flower:" + str(flower_id) + "</h2>")
