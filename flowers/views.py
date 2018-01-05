@@ -1,5 +1,5 @@
 from django.http import Http404
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Flower
 
 def index(request):
@@ -7,8 +7,5 @@ def index(request):
 	return render(request, 'flowers/index.html', {'all_flowers': all_flowers})
 
 def detail(request, flower_id):
-	try:
-		flower = Flower.objects.get(pk=flower_id)
-	except Flower.DoesNotExist:
-		raise Http404("Flower does not exist")
+	flower = get_object_or_404(Flower, pk=flower_id)
 	return render(request, 'flowers/details.html', {'flower': flower})
