@@ -1,5 +1,9 @@
-<img src="{{ flower.picture }}">
+<img src="{{ flower.picture }}" height="250px">
 
-<h1>{{ flower.name }}</h1>
-<h2>{{ flower.description }}</h2>
+<h2>{{ flower.name }}</h2>
+<p>{{ flower.description }}</p>
 <p>${{ flower.price }}</p>
+
+{% if error_message %}
+<p><strong>{{ error_message }}</strong></p>
+{% endif %}

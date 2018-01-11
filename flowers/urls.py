@@ -8,4 +8,7 @@ urlpatterns = [
 
     # /flowers/50/
     url(r'^(?P<flower_id>[0-9]+)/$', views.detail, name='detail'),
+
+    # # /flowers/cart
+    # url(r'^cart/$', views.cart, name='cart'),
 ]
