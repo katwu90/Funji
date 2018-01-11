@@ -4,10 +4,10 @@ from . import views
 app_name = 'flower'
 urlpatterns = [
 	# /flowers/
-    url(r'^$', views.index, name='index'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
 
     # /flowers/50/
-    url(r'^(?P<flower_id>[0-9]+)/$', views.detail, name='detail'),
+    url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
 
     # # /flowers/cart
     # url(r'^cart/$', views.cart, name='cart'),

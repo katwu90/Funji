@@ -1,9 +1,18 @@
-<img src="{{ flower.picture }}" height="250px">
+{% extends 'flowers/base.html' %}
 
-<h2>{{ flower.name }}</h2>
-<p>{{ flower.description }}</p>
-<p>${{ flower.price }}</p>
+{% block title %}Funji - {{ flower.name }}{% endblock %}
 
-{% if error_message %}
-<p><strong>{{ error_message }}</strong></p>
-{% endif %}
+{% block body %}
+<div class="container">
+    <div class="mt-2"><img src="{{ flower.picture }}" height="250px"></div>
+
+    <h2>{{ flower.name }}</h2>
+    <p>{{ flower.description }}</p>
+    <p>${{ flower.price }}</p>
+
+    {% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+    {% endif %}
+    <a href="/flowers"><i class="fa fa-arrow-left" aria-hidden="true"></i> Go Back</a>
+</div>
+{% endblock %}
